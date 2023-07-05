@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <div>
+    <>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
         crossorigin="anonymous"
       />
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -46,16 +46,19 @@ export default function Navbar(props) {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-primary" type="submit">
                 Search
               </button>
             </form>
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 
-Navbar.propTypes = { title: PropTypes.string.isRequired, aboutText: PropTypes.string };
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string,
+};
 Navbar.defaultProps = { title: "Set title here", aboutText: "About" };

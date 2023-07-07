@@ -4,19 +4,25 @@ import { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   const handleUpClick = () => {
-    console.log("uppercasewasclicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
   };
+
+  const handleClearText = () => {
+    let newText = "";
+    setText(newText);
+  };
+
   const handleLoClick = () => {
-    console.log("uppercasewasclicked" + text);
     let newText = text.toLowerCase();
     setText(newText);
   };
+
   const handleOnChange = (event) => {
     console.log("On Change");
     setText(event.target.value);
   };
+
   return (
     <>
       <div className="container">
@@ -40,13 +46,18 @@ export default function TextForm(props) {
           Convert to uppercase
         </button>
         <button className="btn mx-1 btn-primary" onClick={handleLoClick}>
-        Convert to lowercase
+          Convert to lowercase
+        </button>
+        <button className="btn mx-1 btn-primary" onClick={handleClearText}>
+          Clear Text
         </button>
       </div>
 
       <div className="container my-3">
         <h1>Your text summary</h1>
-        <p>{text.split(" ").length} words, {text.length} characters </p>
+        <p>
+          {text.split(" ").length} words, {text.length} characters{" "}
+        </p>
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text}</p>
